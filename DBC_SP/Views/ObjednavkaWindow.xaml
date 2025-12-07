@@ -1,0 +1,45 @@
+﻿<Window x:Class="DBC_SP.Views.ObjednavkaWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DBC_SP.Views"
+        mc:Ignorable="d"
+        Title="Nová Objednávka" Height="300" Width="450"
+        WindowStartupLocation="CenterScreen">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- VÝBĚR UŽIVATELE -->
+        <Label Content="Zákazník:" Grid.Row="0"/>
+        <ComboBox Grid.Row="0" Grid.Column="1" Margin="0,5"
+                  ItemsSource="{Binding SeznamUzivatelu}"
+                  SelectedItem="{Binding VybranaObjednavka.Uzivatel}"
+                  DisplayMemberPath="Prijmeni"/>
+        <!-- Zde se ukáže jen Příjmení, díky ToString v modelu to může být lepší -->
+
+        <!-- VÝBĚR NOTEBOOKU -->
+        <Label Content="Notebook:" Grid.Row="1"/>
+        <ComboBox Grid.Row="1" Grid.Column="1" Margin="0,5"
+                  ItemsSource="{Binding SeznamNotebooku}"
+                  SelectedItem="{Binding VybranaObjednavka.Notebook}"
+                  DisplayMemberPath="Model"/>
+
+        <!-- IČO -->
+        <Label Content="IČO:" Grid.Row="2"/>
+        <TextBox Text="{Binding VybranaObjednavka.ICO}" Grid.Row="2" Grid.Column="1" Margin="0,5"/>
+
+        <Button Content="✅ Vytvořit objednávku" Click="BtnSave_Click" IsDefault="True"
+                Grid.Row="4" Grid.Column="1" Height="30"/>
+    </Grid>
+</Window>

@@ -1,0 +1,10 @@
+﻿<Application x:Class="DBC_SP.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:DBC_SP"
+             StartupUri="Views/MainWindow.xaml">
+    <!-- ZMĚNA: Přidána cesta "Views/" -->
+    <Application.Resources>
+        <!-- Zde mohou být globální styly -->
+    </Application.Resources>
+</Application>
